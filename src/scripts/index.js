@@ -9,8 +9,16 @@ const cellDivs = document.querySelectorAll(".game-cell");
 // check if 3 align (8cases) or if no winner
 // clicked cell cannot take another symbol
 
+let xTurn = true;
+
 const clickEvent = (e) => {
-  e.target.innerHTML = "X";
+  if (xTurn) {
+    e.target.innerHTML = "X";
+    xTurn = false;
+  } else {
+    e.target.innerHTML = "O";
+    xTurn = true;
+  }
 };
 
 for (const cellDiv of cellDivs) {
