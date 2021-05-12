@@ -3,25 +3,20 @@ const statusDiv = document.querySelector(".status");
 const resetDiv = document.querySelector(".reset");
 const cellDivs = document.querySelectorAll(".game-cell");
 
-// toggle who's turn it is in status
-// Add x or O on click into cells
-// add class of x or o to classlist
-// check if 3 align (8cases) or if no winner
-// clicked cell cannot take another symbol
+// the overlay keeps the user from clicking more gridtiles
+let overlay = document.querySelector(".overlay");
 
-let xTurn = true;
-
+// check if there are 3 same symbols in a row
 const checkWinner = () => {
-  const topLeft = document.querySelector(".cell1").classList[2];
-  const topMiddle = document.querySelector(".cell2").classList[2];
-  const topRight = document.querySelector(".cell3").classList[2];
-  const middleLeft = document.querySelector(".cell4").classList[2];
-  const middleMiddle = document.querySelector(".cell5").classList[2];
-  const middleRight = document.querySelector(".cell6").classList[2];
-  const bottomLeft = document.querySelector(".cell7").classList[2];
-  const bottomMiddle = document.querySelector(".cell8").classList[2];
-  const bottomRight = document.querySelector(".cell9").classList[2];
-  let overlay = document.querySelector(".overlay");
+  const topLeft = document.querySelector(".cell1").innerHTML;
+  const topMiddle = document.querySelector(".cell2").innerHTML;
+  const topRight = document.querySelector(".cell3").innerHTML;
+  const middleLeft = document.querySelector(".cell4").innerHTML;
+  const middleMiddle = document.querySelector(".cell5").innerHTML;
+  const middleRight = document.querySelector(".cell6").innerHTML;
+  const bottomLeft = document.querySelector(".cell7").innerHTML;
+  const bottomMiddle = document.querySelector(".cell8").innerHTML;
+  const bottomRight = document.querySelector(".cell9").innerHTML;
 
   if (
     // horizontal top row wins
@@ -31,6 +26,7 @@ const checkWinner = () => {
   ) {
     overlay.style.display = "flex";
     statusDiv.innerHTML = `${topLeft} is the winner!`;
+    statusDiv.style.backgroundColor = "green";
   } else if (
     // horizontal middle row wins
     middleLeft &&
@@ -39,6 +35,7 @@ const checkWinner = () => {
   ) {
     overlay.style.display = "flex";
     statusDiv.innerHTML = `${middleLeft} is the winner!`;
+    statusDiv.style.backgroundColor = "green";
   } else if (
     // horizontal bottom row wins
     bottomLeft &&
@@ -47,6 +44,7 @@ const checkWinner = () => {
   ) {
     overlay.style.display = "flex";
     statusDiv.innerHTML = `${bottomLeft} is the winner!`;
+    statusDiv.style.backgroundColor = "green";
   } else if (
     // vertical left column wins
     topLeft &&
@@ -55,6 +53,7 @@ const checkWinner = () => {
   ) {
     overlay.style.display = "flex";
     statusDiv.innerHTML = `${topLeft} is the winner!`;
+    statusDiv.style.backgroundColor = "green";
   } else if (
     // vertical middle column wins
     topMiddle &&
@@ -63,6 +62,7 @@ const checkWinner = () => {
   ) {
     overlay.style.display = "flex";
     statusDiv.innerHTML = `${topMiddle} is the winner!`;
+    statusDiv.style.backgroundColor = "green";
   } else if (
     // vertical right column wins
     topRight &&
@@ -71,6 +71,7 @@ const checkWinner = () => {
   ) {
     overlay.style.display = "flex";
     statusDiv.innerHTML = `${topRight} is the winner!`;
+    statusDiv.style.backgroundColor = "green";
   } else if (
     // diagonal topleft to bottomright wins
     topLeft &&
@@ -79,6 +80,7 @@ const checkWinner = () => {
   ) {
     overlay.style.display = "flex";
     statusDiv.innerHTML = `${topLeft} is the winner!`;
+    statusDiv.style.backgroundColor = "green";
   } else if (
     // diagonal topright to bottomleft wins
     topRight &&
@@ -87,23 +89,45 @@ const checkWinner = () => {
   ) {
     overlay.style.display = "flex";
     statusDiv.innerHTML = `${topRight} is the winner!`;
+    statusDiv.style.backgroundColor = "green";
   }
 };
+
+const reset = () => {
+  overlay.style.display = "none";
+  console.log("hi");
+  cellDivs.forEach((e) => {
+    e.innerHTML = "";
+    e.classList.remove("x");
+    e.classList.remove("o");
+    xTurn = true;
+    statusDiv.innerHTML = "It's X's turn.";
+    statusDiv.style.backgroundColor = "transparent";
+  });
+};
+
+// What happens on clicking a grid tile
+let xTurn = true;
 const clickEvent = (e) => {
   if (xTurn) {
+    //   occupy the clicked grid tile
     e.target.innerHTML = "X";
-    e.target.classList.add("x");
+    // decide who's turn it is
     xTurn = false;
     statusDiv.innerHTML = "It's O's turn.";
+    // check if there is a winner
     checkWinner();
   } else {
+    //   occupy the clicked grid tile
     e.target.innerHTML = "O";
-    e.target.classList.add("o");
+    // decide who's turn it is
     xTurn = true;
     statusDiv.innerHTML = "It's X's turn.";
     checkWinner();
   }
 };
+
+resetDiv.addEventListener("click", reset);
 
 for (const cellDiv of cellDivs) {
   cellDiv.addEventListener("click", clickEvent);
