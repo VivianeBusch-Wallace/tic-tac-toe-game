@@ -1,49 +1,45 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  color: #545454;
-  @include center(column);
-}
-
-.container {
+.game-container {
   background: #14bdac;
   margin: 50px;
   padding: 50px;
   border-radius: 25px;
 }
 
-.title {
-  text-align: center;
-}
+// .title {
+//   text-align: center;
+// }
 
-.title span {
-  color: #f2ebd3;
-}
+// .title span {
+//   color: #f2ebd3;
+// }
 
-.status-action {
+.status-reset {
   display: flex;
-  margin-top: 25px;
+  //   margin-top: 25px;
+  padding: 1rem;
   font-size: 25px;
   justify-content: space-around;
-  height: 30px;
+  //   height: 30px;
+  background-color: #14bdac;
+  border-bottom: cadetblue 0.5rem solid;
 }
 
-.status span {
+.status {
   color: #f2ebd3;
+  border: blue 2px solid;
 }
 
 .reset {
+  color: #f2ebd3;
   cursor: pointer;
+  border: blue 2px solid;
 }
 
 .reset:hover {
-  color: #f2ebd3;
+  color: #f6d872;
 }
 
+// game grid
 .game-grid {
   background: #0da192;
   display: grid;
@@ -52,7 +48,7 @@ body {
   grid-gap: 15px;
   margin-top: 50px;
 }
-
+// game cells
 .game-cell {
   background: #14bdac;
   display: flex;
@@ -62,27 +58,25 @@ body {
   height: 200px;
   width: 200px;
 }
-
+// occupied cells
 .x,
 .o {
   cursor: default;
 }
-
 .x::after {
   content: "×";
   font-size: 200px;
 }
-
 .o::after {
   content: "○";
   color: #f2ebd3;
   font-size: 225px;
 }
-
 .won::after {
   color: #bd022f;
 }
 
+// media queries settings
 @media only screen and (max-width: 1024px) {
   .game-grid {
     margin-top: 25px;

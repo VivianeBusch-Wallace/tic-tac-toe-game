@@ -3,6 +3,14 @@ const statusDiv = document.querySelector(".status");
 const resetDiv = document.querySelector(".reset");
 const cellDivs = document.querySelectorAll(".game-cell");
 
+// toggle who's turn it is in status
+// Add x or O on click into cells
+// add class of x or o to classlist
+// check if 3 align (8cases) or if no winner
+// clicked cell cannot take another symbol
+
+// ============================================ Guide =======================
+
 // game constants
 const xSymbol = "×";
 const oSymbol = "○";
