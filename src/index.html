@@ -4,9 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- styles -->
+    <link rel="stylesheet" href="./styles/main.css" />
     <title>Tic Tac Toe</title>
   </head>
   <body>
+    <div class="container-all">
+      <h1>Tic Tac Toe</h1>
+      <p>Rules:</p>
+      <ol>
+        <li>Player 1 goes first and will have symbol X.</li>
+        <li>The goal of the game is to get 3 symbols in a row</li>
+        <li>
+          You play by clicking into the box that you want to occupy with your
+          symbol
+        </li>
+        <li>
+          You win the game when you have 3 of your symbols in a row
+          horizontally, vertically, or diagonally in either direction
+        </li>
+        <li>Each cell can only be occupied by one symbol.</li>
+        <li>The status will tell you who the current player is and who won.</li>
+      </ol>
+    </div>
+    <div class="game-container">
+      <div class="status-reset">
+        <div class="status"></div>
+        <div class="reset"></div>
+      </div>
+      <div class="game-grid">
+        <div class="cell1"></div>
+        <div class="cell2"></div>
+        <div class="cell3"></div>
+        <div class="cell4"></div>
+        <div class="cell5"></div>
+        <div class="cell6"></div>
+        <div class="cell7"></div>
+        <div class="cell8"></div>
+        <div class="cell9"></div>
+      </div>
+    </div>
     <!-- My scripts -->
     <script src="./scripts/index.js"></script>
   </body>
