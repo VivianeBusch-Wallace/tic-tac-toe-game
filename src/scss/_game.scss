@@ -63,18 +63,18 @@
 .o {
   cursor: default;
 }
-.x::after {
-  content: "×";
-  font-size: 200px;
-}
-.o::after {
-  content: "○";
-  color: #f2ebd3;
-  font-size: 225px;
-}
-.won::after {
-  color: #bd022f;
-}
+// .x::after {
+//   content: "×";
+//   font-size: 200px;
+// }
+// .o::after {
+//   content: "○";
+//   color: #f2ebd3;
+//   font-size: 225px;
+// }
+// .won::after {
+//   color: #bd022f;
+// }
 
 // media queries settings
 @media only screen and (max-width: 1024px) {

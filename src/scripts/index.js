@@ -11,14 +11,33 @@ const cellDivs = document.querySelectorAll(".game-cell");
 
 let xTurn = true;
 
+const checkWinner = () => {
+  const topLeft = document.querySelector(".cell1");
+  const topMiddle = document.querySelector(".cell2");
+  const topRight = document.querySelector(".cell3");
+  const middleLeft = document.querySelector(".cell4");
+  const middleMiddle = document.querySelector(".cell5");
+  const middleRight = document.querySelector(".cell6");
+  const bottomLeft = document.querySelector(".cell7");
+  const bottomMiddle = document.querySelector(".cell8");
+  const bottomRight = document.querySelector(".cell9");
+
+  if (topLeft && topLeft == topMiddle && topLeft == topRight) {
+    console.log(topLeft);
+  }
+};
+
 const clickEvent = (e) => {
   if (xTurn) {
     e.target.innerHTML = "X";
+    e.target.classList.add("x");
     xTurn = false;
   } else {
     e.target.innerHTML = "O";
+    e.target.classList.add("o");
     xTurn = true;
   }
+  checkWinner;
 };
 
 for (const cellDiv of cellDivs) {
