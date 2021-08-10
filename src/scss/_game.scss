@@ -5,6 +5,7 @@
   border-radius: 25px;
 }
 
+// status and reset
 .status-reset {
   display: flex;
   padding: 1rem;
@@ -13,20 +14,20 @@
   background-color: #14bdac;
   border-bottom: cadetblue 0.5rem solid;
 }
-
 .status,
 .reset {
-  padding: 1rem;
-  color: #f2ebd3;
-  border: blue 2px solid;
+  padding: 1rem 1.5rem;
+  color: #ffffff;
 }
-
+.status {
+  cursor: default;
+}
 .reset {
   cursor: pointer;
+  background-color: rgb(0, 136, 84);
 }
-
 .reset:hover {
-  color: #f6d872;
+  background-color: rgb(0, 161, 100);
 }
 
 // game grid
